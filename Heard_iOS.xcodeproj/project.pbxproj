@@ -58,13 +58,37 @@
 			children = (
 				9EA8914624E72010007F4F8C /* AppDelegate.swift */,
 				9EA8914824E72010007F4F8C /* SceneDelegate.swift */,
-				9EA8914A24E72010007F4F8C /* ViewController.swift */,
-				9EA8914C24E72010007F4F8C /* Main.storyboard */,
+				9EA8915B24E72211007F4F8C /* View */,
+				9EA8915D24E72234007F4F8C /* Model */,
+				9EA8915C24E72225007F4F8C /* Controller */,
 				9EA8914F24E72012007F4F8C /* Assets.xcassets */,
 				9EA8915124E72012007F4F8C /* LaunchScreen.storyboard */,
 				9EA8915424E72012007F4F8C /* Info.plist */,
 			);
 			path = Heard_iOS;
+			sourceTree = "<group>";
+		};
+		9EA8915B24E72211007F4F8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9EA8914C24E72010007F4F8C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9EA8915C24E72225007F4F8C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9EA8914A24E72010007F4F8C /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9EA8915D24E72234007F4F8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
