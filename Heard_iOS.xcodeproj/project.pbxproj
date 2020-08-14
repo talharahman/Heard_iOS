@@ -3,27 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9EA8914724E72010007F4F8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914624E72010007F4F8C /* AppDelegate.swift */; };
 		9EA8914924E72010007F4F8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914824E72010007F4F8C /* SceneDelegate.swift */; };
-		9EA8914B24E72010007F4F8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914A24E72010007F4F8C /* ViewController.swift */; };
+		9EA8914B24E72010007F4F8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914A24E72010007F4F8C /* LoginViewController.swift */; };
 		9EA8914E24E72010007F4F8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EA8914C24E72010007F4F8C /* Main.storyboard */; };
 		9EA8915024E72012007F4F8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EA8914F24E72012007F4F8C /* Assets.xcassets */; };
 		9EA8915324E72012007F4F8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EA8915124E72012007F4F8C /* LaunchScreen.storyboard */; };
+		9EA8915F24E728FC007F4F8C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EA8915E24E728FC007F4F8C /* GoogleService-Info.plist */; };
+		A592F880DF4DD170443A3E82 /* Pods_Heard_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27F54A1B8C83E728C5D704C /* Pods_Heard_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D722349FB3B1C00A9D6B5FE /* Pods-Heard_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Heard_iOS.debug.xcconfig"; path = "Target Support Files/Pods-Heard_iOS/Pods-Heard_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9EA8914324E72010007F4F8C /* Heard_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heard_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA8914624E72010007F4F8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EA8914824E72010007F4F8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9EA8914A24E72010007F4F8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9EA8914A24E72010007F4F8C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9EA8914D24E72010007F4F8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EA8914F24E72012007F4F8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EA8915224E72012007F4F8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EA8915424E72012007F4F8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EA8915E24E728FC007F4F8C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B99608C5A8BF2CC6285873F7 /* Pods-Heard_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Heard_iOS.release.xcconfig"; path = "Target Support Files/Pods-Heard_iOS/Pods-Heard_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		D27F54A1B8C83E728C5D704C /* Pods_Heard_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Heard_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A592F880DF4DD170443A3E82 /* Pods_Heard_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3691FCE88288E1D235F057F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D27F54A1B8C83E728C5D704C /* Pods_Heard_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F43E34D1274DB78CE62D4AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D722349FB3B1C00A9D6B5FE /* Pods-Heard_iOS.debug.xcconfig */,
+				B99608C5A8BF2CC6285873F7 /* Pods-Heard_iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9EA8913A24E72010007F4F8C = {
 			isa = PBXGroup;
 			children = (
 				9EA8914524E72010007F4F8C /* Heard_iOS */,
 				9EA8914424E72010007F4F8C /* Products */,
+				3F43E34D1274DB78CE62D4AE /* Pods */,
+				3691FCE88288E1D235F057F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +90,7 @@
 				9EA8914F24E72012007F4F8C /* Assets.xcassets */,
 				9EA8915124E72012007F4F8C /* LaunchScreen.storyboard */,
 				9EA8915424E72012007F4F8C /* Info.plist */,
+				9EA8915E24E728FC007F4F8C /* GoogleService-Info.plist */,
 			);
 			path = Heard_iOS;
 			sourceTree = "<group>";
@@ -79,7 +106,7 @@
 		9EA8915C24E72225007F4F8C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9EA8914A24E72010007F4F8C /* ViewController.swift */,
+				9EA8914A24E72010007F4F8C /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -98,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EA8915724E72012007F4F8C /* Build configuration list for PBXNativeTarget "Heard_iOS" */;
 			buildPhases = (
+				F734382081CB21D0908AFB95 /* [CP] Check Pods Manifest.lock */,
 				9EA8913F24E72010007F4F8C /* Sources */,
 				9EA8914024E72010007F4F8C /* Frameworks */,
 				9EA8914124E72010007F4F8C /* Resources */,
+				5DE1DD454F326EF3BAA5DA4C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EA8915324E72012007F4F8C /* LaunchScreen.storyboard in Resources */,
+				9EA8915F24E728FC007F4F8C /* GoogleService-Info.plist in Resources */,
 				9EA8915024E72012007F4F8C /* Assets.xcassets in Resources */,
 				9EA8914E24E72010007F4F8C /* Main.storyboard in Resources */,
 			);
@@ -157,12 +187,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5DE1DD454F326EF3BAA5DA4C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Heard_iOS/Pods-Heard_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Heard_iOS/Pods-Heard_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Heard_iOS/Pods-Heard_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F734382081CB21D0908AFB95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Heard_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9EA8913F24E72010007F4F8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EA8914B24E72010007F4F8C /* ViewController.swift in Sources */,
+				9EA8914B24E72010007F4F8C /* LoginViewController.swift in Sources */,
 				9EA8914724E72010007F4F8C /* AppDelegate.swift in Sources */,
 				9EA8914924E72010007F4F8C /* SceneDelegate.swift in Sources */,
 			);
@@ -306,6 +378,7 @@
 		};
 		9EA8915824E72012007F4F8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D722349FB3B1C00A9D6B5FE /* Pods-Heard_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -314,7 +387,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.talharahman.Heard-iOS.Heard-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.talharahman.Heard-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -323,6 +396,7 @@
 		};
 		9EA8915924E72012007F4F8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B99608C5A8BF2CC6285873F7 /* Pods-Heard_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -331,7 +405,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.talharahman.Heard-iOS.Heard-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.talharahman.Heard-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
