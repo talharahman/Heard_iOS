@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E98B36024E7895800CBDD5E /* MainUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E98B35F24E7895800CBDD5E /* MainUserViewController.swift */; };
 		9EA8914724E72010007F4F8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914624E72010007F4F8C /* AppDelegate.swift */; };
 		9EA8914924E72010007F4F8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914824E72010007F4F8C /* SceneDelegate.swift */; };
 		9EA8914B24E72010007F4F8C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914A24E72010007F4F8C /* LoginViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1D722349FB3B1C00A9D6B5FE /* Pods-Heard_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Heard_iOS.debug.xcconfig"; path = "Target Support Files/Pods-Heard_iOS/Pods-Heard_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		9E98B35F24E7895800CBDD5E /* MainUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserViewController.swift; sourceTree = "<group>"; };
 		9EA8914324E72010007F4F8C /* Heard_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heard_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA8914624E72010007F4F8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EA8914824E72010007F4F8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				9EA8914A24E72010007F4F8C /* LoginViewController.swift */,
+				9E98B35F24E7895800CBDD5E /* MainUserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			files = (
 				9EA8914B24E72010007F4F8C /* LoginViewController.swift in Sources */,
 				9EA8914724E72010007F4F8C /* AppDelegate.swift in Sources */,
+				9E98B36024E7895800CBDD5E /* MainUserViewController.swift in Sources */,
 				9EA8914924E72010007F4F8C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

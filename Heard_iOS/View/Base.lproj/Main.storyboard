@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,19 +12,19 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Heard_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YN2-CI-gIn">
-                                <rect key="frame" x="16" y="244" width="382" height="84"/>
+                                <rect key="frame" x="16" y="200" width="343" height="84"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEj-pI-Rez">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="a@b.com" borderStyle="roundedRect" placeholder="e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JEj-pI-Rez">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FYr-3y-03W">
-                                        <rect key="frame" x="0.0" y="50" width="382" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FYr-3y-03W">
+                                        <rect key="frame" x="0.0" y="50" width="343" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
@@ -64,21 +64,87 @@
             </objects>
             <point key="canvasLocation" x="-33.333333333333336" y="124.55357142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Main User View Controller-->
         <scene sceneID="cYM-7I-woo">
             <objects>
-                <viewController id="gI3-J0-ghp" sceneMemberID="viewController">
+                <viewController id="gI3-J0-ghp" customClass="MainUserViewController" customModule="Heard_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6yC-X8-HSo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-7f-F91">
+                                <rect key="frame" x="8" y="0.0" width="359" height="630.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebj-3E-LG8">
+                                        <rect key="frame" x="84" y="0.0" width="191" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="Sg4-b1-XKn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Artists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6w-J3-dUY">
+                                        <rect key="frame" x="122" y="90" width="115" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vMg-ak-RTl">
+                                        <rect key="frame" x="40.5" y="130.5" width="278" height="360"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UX-Gw-hus">
+                                        <rect key="frame" x="99.5" y="510.5" width="160" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="NRN-lS-wfo"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="zrq-Lu-WDk"/>
+                                        </constraints>
+                                        <state key="normal" title="SEARCH NEARBY">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchNearbyPressed:" destination="gI3-J0-ghp" eventType="touchUpInside" id="N7V-Lr-JdQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNz-Da-99r">
+                                        <rect key="frame" x="99.5" y="580.5" width="160" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="NIw-qL-W5U"/>
+                                            <constraint firstAttribute="height" constant="50" id="Y8x-zj-fTt"/>
+                                        </constraints>
+                                        <state key="normal" title="FIND ARTISTS">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="findArtistsPressed:" destination="gI3-J0-ghp" eventType="touchUpInside" id="sn8-mX-TLI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vul-7f-F91" firstAttribute="top" secondItem="zf9-Sv-M5L" secondAttribute="top" id="J6H-i7-ilE"/>
+                            <constraint firstItem="zf9-Sv-M5L" firstAttribute="trailing" secondItem="Vul-7f-F91" secondAttribute="trailing" constant="8" id="QoD-I2-chS"/>
+                            <constraint firstItem="zf9-Sv-M5L" firstAttribute="bottom" secondItem="Vul-7f-F91" secondAttribute="bottom" constant="16.5" id="qHl-Au-shA"/>
+                            <constraint firstItem="Vul-7f-F91" firstAttribute="leading" secondItem="zf9-Sv-M5L" secondAttribute="leading" constant="8" id="ttc-cP-ZuY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zf9-Sv-M5L"/>
                     </view>
                     <navigationItem key="navigationItem" id="3Ob-zk-Krf"/>
+                    <connections>
+                        <outlet property="favoriteArtistsTable" destination="vMg-ak-RTl" id="ehM-EW-tYr"/>
+                        <outlet property="findArtistsButton" destination="fNz-Da-99r" id="Dl1-0S-vVD"/>
+                        <outlet property="helloUserLabel" destination="ebj-3E-LG8" id="y3u-a4-kR3"/>
+                        <outlet property="searchNearbyButton" destination="7UX-Gw-hus" id="1fc-5L-WVh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQn-8W-9ik" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896" y="125"/>
+            <point key="canvasLocation" x="895.6521739130435" y="124.55357142857142"/>
         </scene>
     </scenes>
 </document>

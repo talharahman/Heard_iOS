@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Heard_iOS
-//
-//  Created by Talha Rahman on 8/14/20.
-//  Copyright © 2020 Talha Rahman. All rights reserved.
-//
-
 import UIKit
 import FirebaseAuth
 
