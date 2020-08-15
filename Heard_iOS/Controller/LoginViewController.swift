@@ -25,9 +25,7 @@ class LoginViewController: UIViewController {
                  authResult, error in
                  if let e = error {
                  print(e.localizedDescription)
-                 } else {
-                     self.performSegue(withIdentifier: "ActionLoginToUser", sender: self)
-                 }
+                 } 
             }
             
         }

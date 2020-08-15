@@ -20,14 +20,11 @@ class MainUserViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     @IBAction func searchNearbyPressed(_ sender: UIButton) {
+        
     }
     
-    @IBAction func findArtistsPressed(_ sender: UIButton) {
-    }
     
 }
