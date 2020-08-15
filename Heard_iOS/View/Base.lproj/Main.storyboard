@@ -107,11 +107,8 @@
                                         <state key="normal" title="SEARCH NEARBY">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="searchNearbyPressed:" destination="gI3-J0-ghp" eventType="touchUpInside" id="N7V-Lr-JdQ"/>
-                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNz-Da-99r">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNz-Da-99r">
                                         <rect key="frame" x="99.5" y="580.5" width="160" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -142,7 +139,7 @@
                         <outlet property="favoriteArtistsTable" destination="vMg-ak-RTl" id="ehM-EW-tYr"/>
                         <outlet property="findArtistsButton" destination="fNz-Da-99r" id="Dl1-0S-vVD"/>
                         <outlet property="helloUserLabel" destination="ebj-3E-LG8" id="y3u-a4-kR3"/>
-                        <outlet property="searchNearbyButton" destination="7UX-Gw-hus" id="1fc-5L-WVh"/>
+                        <outlet property="searchNearbyButton" destination="7UX-Gw-hus" id="wgs-ha-eQd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQn-8W-9ik" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -160,7 +157,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0cP-7z-Jnl">
                                 <rect key="frame" x="16" y="32" width="343" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-FL-2fv">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type artist name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-FL-2fv">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -169,28 +166,17 @@
                                         <rect key="frame" x="323" y="8" width="20" height="18"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="searchArtistPressed:" destination="Tyw-bh-Os1" eventType="touchUpInside" id="uys-Tg-ix8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwn-MX-yn1">
-                                <rect key="frame" x="8" y="82" width="359" height="181"/>
+                                <rect key="frame" x="8" y="106" width="359" height="216"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HJO-6A-iFm">
-                                        <rect key="frame" x="31" y="20" width="80" height="80"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="82.5" id="dCr-Ha-6xu"/>
-                                            <constraint firstAttribute="width" constant="80" id="v5N-gs-wWW"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbE-Rg-P4n">
-                                        <rect key="frame" x="244" y="34.5" width="66" height="31.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuH-Lg-rdh">
-                                        <rect key="frame" x="8" y="120" width="343" height="45"/>
+                                        <rect key="frame" x="8" y="147" width="343" height="45"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="2bs-uM-rJz"/>
@@ -202,30 +188,44 @@
                                             <action selector="addArtistPressed:" destination="Tyw-bh-Os1" eventType="touchUpInside" id="xXJ-Bo-tZX"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HJO-6A-iFm">
+                                        <rect key="frame" x="50" y="31" width="80" height="80"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="82.5" id="dCr-Ha-6xu"/>
+                                            <constraint firstAttribute="width" constant="80" id="v5N-gs-wWW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbE-Rg-P4n">
+                                        <rect key="frame" x="243" y="50" width="66" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="HJO-6A-iFm" firstAttribute="leading" secondItem="lwn-MX-yn1" secondAttribute="leading" constant="31" id="4yO-fy-lfS"/>
-                                    <constraint firstItem="fbE-Rg-P4n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HJO-6A-iFm" secondAttribute="trailing" constant="8" symbolic="YES" id="8Fr-iZ-dVa"/>
-                                    <constraint firstItem="PuH-Lg-rdh" firstAttribute="leading" secondItem="lwn-MX-yn1" secondAttribute="leadingMargin" id="9y6-eK-KzU"/>
-                                    <constraint firstAttribute="trailing" secondItem="fbE-Rg-P4n" secondAttribute="trailing" constant="49" id="XJq-oh-hTg"/>
-                                    <constraint firstItem="PuH-Lg-rdh" firstAttribute="top" secondItem="fbE-Rg-P4n" secondAttribute="bottom" constant="54" id="byy-sX-Crh"/>
-                                    <constraint firstAttribute="bottom" secondItem="PuH-Lg-rdh" secondAttribute="bottom" constant="16" id="keL-VS-vEY"/>
-                                    <constraint firstItem="PuH-Lg-rdh" firstAttribute="top" secondItem="HJO-6A-iFm" secondAttribute="bottom" constant="18.5" id="oi4-Pa-dTL"/>
-                                    <constraint firstItem="PuH-Lg-rdh" firstAttribute="trailing" secondItem="lwn-MX-yn1" secondAttribute="trailingMargin" id="qYe-j9-1RU"/>
+                                    <constraint firstItem="fbE-Rg-P4n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HJO-6A-iFm" secondAttribute="trailing" symbolic="YES" id="3vT-Hn-DgE"/>
+                                    <constraint firstAttribute="trailing" secondItem="fbE-Rg-P4n" secondAttribute="trailing" constant="50" id="COI-yL-bhv"/>
+                                    <constraint firstItem="HJO-6A-iFm" firstAttribute="leading" secondItem="lwn-MX-yn1" secondAttribute="leading" constant="50" id="CXk-p2-3kl"/>
+                                    <constraint firstAttribute="bottom" secondItem="PuH-Lg-rdh" secondAttribute="bottom" constant="24" id="NXE-Ul-mC8"/>
+                                    <constraint firstItem="fbE-Rg-P4n" firstAttribute="top" secondItem="lwn-MX-yn1" secondAttribute="top" constant="50" id="dyV-yp-Tu5"/>
+                                    <constraint firstItem="PuH-Lg-rdh" firstAttribute="leading" secondItem="lwn-MX-yn1" secondAttribute="leading" constant="8" id="gPf-R3-TwF"/>
+                                    <constraint firstItem="HJO-6A-iFm" firstAttribute="top" secondItem="lwn-MX-yn1" secondAttribute="top" constant="30" id="gzs-VF-HQu"/>
+                                    <constraint firstAttribute="trailing" secondItem="PuH-Lg-rdh" secondAttribute="trailing" constant="8" id="ibe-nO-dzA"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lwn-MX-yn1" firstAttribute="top" secondItem="0cP-7z-Jnl" secondAttribute="bottom" constant="16" id="HZt-Y2-nWO"/>
+                            <constraint firstItem="0F8-iD-s9E" firstAttribute="bottom" secondItem="lwn-MX-yn1" secondAttribute="bottom" constant="325" id="9yt-13-K6d"/>
+                            <constraint firstItem="lwn-MX-yn1" firstAttribute="top" secondItem="0cP-7z-Jnl" secondAttribute="bottom" constant="40" id="Blz-Xa-Rri"/>
                             <constraint firstItem="0F8-iD-s9E" firstAttribute="trailing" secondItem="0cP-7z-Jnl" secondAttribute="trailing" constant="16" id="NaA-MZ-9Pd"/>
+                            <constraint firstItem="lwn-MX-yn1" firstAttribute="leading" secondItem="0F8-iD-s9E" secondAttribute="leading" constant="8" id="RAm-4Q-p82"/>
                             <constraint firstItem="0cP-7z-Jnl" firstAttribute="top" secondItem="0F8-iD-s9E" secondAttribute="top" constant="32" id="T9R-cW-24C"/>
-                            <constraint firstItem="0F8-iD-s9E" firstAttribute="bottom" secondItem="lwn-MX-yn1" secondAttribute="bottom" constant="384" id="ay3-Xp-SEn"/>
+                            <constraint firstItem="0F8-iD-s9E" firstAttribute="trailing" secondItem="lwn-MX-yn1" secondAttribute="trailing" constant="8" id="a5C-7n-Rc1"/>
                             <constraint firstItem="0cP-7z-Jnl" firstAttribute="leading" secondItem="0F8-iD-s9E" secondAttribute="leading" constant="16" id="hJu-YA-2B3"/>
-                            <constraint firstItem="lwn-MX-yn1" firstAttribute="leading" secondItem="ssM-3W-xRN" secondAttribute="leading" constant="8" id="nkb-oB-nKq"/>
-                            <constraint firstAttribute="trailing" secondItem="lwn-MX-yn1" secondAttribute="trailing" constant="8" id="xTu-0O-sR7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0F8-iD-s9E"/>
                     </view>
@@ -233,6 +233,7 @@
                         <outlet property="addArtistButton" destination="PuH-Lg-rdh" id="vPt-zg-hG8"/>
                         <outlet property="artistImage" destination="HJO-6A-iFm" id="bKb-5i-7WU"/>
                         <outlet property="artistName" destination="fbE-Rg-P4n" id="Pvc-zV-ZI8"/>
+                        <outlet property="searchArtistField" destination="UZy-FL-2fv" id="HKf-yI-Ald"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJh-79-j7z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

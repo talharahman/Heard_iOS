@@ -22,9 +22,6 @@ class MainUserViewController : UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func searchNearbyPressed(_ sender: UIButton) {
-        
-    }
     
     
 }
