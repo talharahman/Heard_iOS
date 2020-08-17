@@ -10,12 +10,13 @@ protocol ArtistSearchDelegate {
 
 struct ArtistSearchManager {
     
-    let baseURL = "https://itunes.apple.com"
+    let baseURL = "https://itunes.apple.com/search?"
     
     var delegate: ArtistSearchDelegate?
     
     func fetchArtist(with input: String) {
-        let urlString = "\(baseURL)/search?term=\(input)"
+        let artistTerm = input.replacingOccurrences(of: " ", with: "%20")
+        let urlString = "\(baseURL)term=\(artistTerm)"
         performRequest(with: urlString)
     }
     

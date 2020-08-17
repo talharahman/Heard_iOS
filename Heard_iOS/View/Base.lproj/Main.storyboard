@@ -139,6 +139,7 @@
                         <outlet property="favoriteArtistsTable" destination="vMg-ak-RTl" id="ehM-EW-tYr"/>
                         <outlet property="findArtistsButton" destination="fNz-Da-99r" id="Dl1-0S-vVD"/>
                         <outlet property="helloUserLabel" destination="ebj-3E-LG8" id="y3u-a4-kR3"/>
+                        <outlet property="myArtistsTV" destination="vMg-ak-RTl" id="6Dk-A2-x69"/>
                         <outlet property="searchNearbyButton" destination="7UX-Gw-hus" id="wgs-ha-eQd"/>
                     </connections>
                 </viewController>
@@ -157,7 +158,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0cP-7z-Jnl">
                                 <rect key="frame" x="16" y="32" width="343" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type artist name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-FL-2fv">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type artist name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZy-FL-2fv">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -206,7 +207,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="fbE-Rg-P4n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HJO-6A-iFm" secondAttribute="trailing" symbolic="YES" id="3vT-Hn-DgE"/>
+                                    <constraint firstItem="fbE-Rg-P4n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HJO-6A-iFm" secondAttribute="trailing" constant="8" symbolic="YES" id="3vT-Hn-DgE"/>
                                     <constraint firstAttribute="trailing" secondItem="fbE-Rg-P4n" secondAttribute="trailing" constant="50" id="COI-yL-bhv"/>
                                     <constraint firstItem="HJO-6A-iFm" firstAttribute="leading" secondItem="lwn-MX-yn1" secondAttribute="leading" constant="50" id="CXk-p2-3kl"/>
                                     <constraint firstAttribute="bottom" secondItem="PuH-Lg-rdh" secondAttribute="bottom" constant="24" id="NXE-Ul-mC8"/>
@@ -233,6 +234,7 @@
                         <outlet property="addArtistButton" destination="PuH-Lg-rdh" id="vPt-zg-hG8"/>
                         <outlet property="artistImage" destination="HJO-6A-iFm" id="bKb-5i-7WU"/>
                         <outlet property="artistName" destination="fbE-Rg-P4n" id="Pvc-zV-ZI8"/>
+                        <outlet property="artistView" destination="lwn-MX-yn1" id="2Ks-ib-H73"/>
                         <outlet property="searchArtistField" destination="UZy-FL-2fv" id="HKf-yI-Ald"/>
                     </connections>
                 </viewController>

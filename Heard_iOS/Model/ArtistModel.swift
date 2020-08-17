@@ -17,6 +17,7 @@ struct ArtistData : Codable {
         self.artistName = artistName
         self.artworkUrl100 = artworkUrl100
     }
-    
 }
+
+
 

@@ -3,25 +3,28 @@ import UIKit
 
 class AddArtistViewController : UIViewController {
     
+    @IBOutlet weak var artistView: UIView!
     @IBOutlet weak var artistImage: UIImageView!
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var addArtistButton: UIButton!
     @IBOutlet weak var searchArtistField: UITextField!
     
     var searchManager = ArtistSearchManager()
+    var selectedArtist: ArtistData?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addArtistButton.layer.cornerRadius =
-        addArtistButton.frame.size.height / 5
         addArtistButton.layer.borderWidth = 1
         addArtistButton.layer.borderColor = UIColor.black.cgColor
+        addArtistButton.layer.cornerRadius =
+             addArtistButton.frame.size.height / 5
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchArtistField.delegate = self
         searchManager.delegate = self
+    //    artistView.isHidden = true
     }
     
     
@@ -36,10 +39,13 @@ extension AddArtistViewController : UITextFieldDelegate {
     
     @IBAction func searchArtistPressed(_ sender: UIButton) {
         searchArtistField.endEditing(true)
+        print(searchArtistField.text!)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchArtistField.endEditing(true)
+        print(searchArtistField.text!)
+        return true
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -52,6 +58,7 @@ extension AddArtistViewController : UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        print("fetching data...")
         if let input = searchArtistField.text {
             searchManager.fetchArtist(with: input)
         }
@@ -64,8 +71,10 @@ extension AddArtistViewController : ArtistSearchDelegate {
     
     func onSuccess(_ artistSearchManager: ArtistSearchManager, _ artist: ArtistData) {
         DispatchQueue.main.async {
+        //    self.artistView.isHidden = false
             self.artistName.text = artist.artistName
             self.artistImage.load(urlString: artist.artworkUrl100)
+   //         self.selectedArtist = artist
         }
     }
     
