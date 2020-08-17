@@ -1,5 +1,7 @@
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class AddArtistViewController : UIViewController {
     
@@ -11,6 +13,7 @@ class AddArtistViewController : UIViewController {
     
     var searchManager = ArtistSearchManager()
     var selectedArtist: ArtistData?
+    let db = Firestore.firestore()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,12 +27,26 @@ class AddArtistViewController : UIViewController {
         super.viewDidLoad()
         searchArtistField.delegate = self
         searchManager.delegate = self
-    //    artistView.isHidden = true
+        artistView.isHidden = true
     }
     
     
     @IBAction func addArtistPressed(_ sender: UIButton) {
-        
+        if let name = selectedArtist?.artistName,
+           let image = selectedArtist?.artworkUrl100,
+            let userID = Auth.auth().currentUser?.uid {
+            db.collection("profiles")
+                .addDocument(data:
+                    ["userID": userID,
+                     "followedArtists": name]) {
+                        (error) in
+                        if let e = error {
+                        print("There was an issue saving data to firestore, \(e)")
+                        } else {
+                        print("Successfully saved data")
+                        }
+            }
+        }
     }
 
 }
@@ -58,8 +75,8 @@ extension AddArtistViewController : UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("fetching data...")
         if let input = searchArtistField.text {
+            selectedArtist = nil
             searchManager.fetchArtist(with: input)
         }
         searchArtistField.text = ""
@@ -71,10 +88,10 @@ extension AddArtistViewController : ArtistSearchDelegate {
     
     func onSuccess(_ artistSearchManager: ArtistSearchManager, _ artist: ArtistData) {
         DispatchQueue.main.async {
-        //    self.artistView.isHidden = false
+            self.artistView.isHidden = false
             self.artistName.text = artist.artistName
             self.artistImage.load(urlString: artist.artworkUrl100)
-   //         self.selectedArtist = artist
+            self.selectedArtist = artist
         }
     }
     
