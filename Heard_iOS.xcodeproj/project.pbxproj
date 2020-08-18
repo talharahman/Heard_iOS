@@ -10,6 +10,7 @@
 		9E5A9B6A24E9B5CF0011C3F5 /* ArtistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A9B6824E9B5CF0011C3F5 /* ArtistItemView.swift */; };
 		9E5A9B6B24E9B5CF0011C3F5 /* ArtistItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A9B6924E9B5CF0011C3F5 /* ArtistItemView.xib */; };
 		9E5A9B6D24E9BDDF0011C3F5 /* FirebaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A9B6C24E9BDDF0011C3F5 /* FirebaseRepository.swift */; };
+		9E5A9B7324EB437E0011C3F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A9B7224EB437E0011C3F5 /* Constants.swift */; };
 		9E98B36024E7895800CBDD5E /* MainUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E98B35F24E7895800CBDD5E /* MainUserViewController.swift */; };
 		9EA8914724E72010007F4F8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914624E72010007F4F8C /* AppDelegate.swift */; };
 		9EA8914924E72010007F4F8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914824E72010007F4F8C /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 		9E5A9B6824E9B5CF0011C3F5 /* ArtistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistItemView.swift; sourceTree = "<group>"; };
 		9E5A9B6924E9B5CF0011C3F5 /* ArtistItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistItemView.xib; sourceTree = "<group>"; };
 		9E5A9B6C24E9BDDF0011C3F5 /* FirebaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepository.swift; sourceTree = "<group>"; };
+		9E5A9B7224EB437E0011C3F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9E98B35F24E7895800CBDD5E /* MainUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserViewController.swift; sourceTree = "<group>"; };
 		9EA8914324E72010007F4F8C /* Heard_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heard_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA8914624E72010007F4F8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,12 +111,13 @@
 				9EA8915B24E72211007F4F8C /* View */,
 				9EFFF1A824E86E6100ABB530 /* Network */,
 				9EA8915D24E72234007F4F8C /* Model */,
+				9E5A9B6E24E9BDE20011C3F5 /* Database */,
 				9EA8915C24E72225007F4F8C /* Controller */,
 				9EA8914F24E72012007F4F8C /* Assets.xcassets */,
 				9EA8915124E72012007F4F8C /* LaunchScreen.storyboard */,
 				9EA8915424E72012007F4F8C /* Info.plist */,
 				9EA8915E24E728FC007F4F8C /* GoogleService-Info.plist */,
-				9E5A9B6E24E9BDE20011C3F5 /* Database */,
+				9E5A9B7224EB437E0011C3F5 /* Constants.swift */,
 			);
 			path = Heard_iOS;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E5A9B6A24E9B5CF0011C3F5 /* ArtistItemView.swift in Sources */,
+				9E5A9B7324EB437E0011C3F5 /* Constants.swift in Sources */,
 				9EFFF1A724E86E4A00ABB530 /* ArtistSearchManager.swift in Sources */,
 				9EA8914B24E72010007F4F8C /* LoginViewController.swift in Sources */,
 				9EFFF1AC24E86F4000ABB530 /* ArtistModel.swift in Sources */,

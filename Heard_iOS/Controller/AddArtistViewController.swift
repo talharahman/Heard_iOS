@@ -13,7 +13,8 @@ class AddArtistViewController : UIViewController {
     
     var searchManager = ArtistSearchManager()
     var selectedArtist: ArtistData?
-    let db = Firestore.firestore()
+    let firebase = FirebaseRepository()
+//    let db = Firestore.firestore()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,20 +33,25 @@ class AddArtistViewController : UIViewController {
     
     
     @IBAction func addArtistPressed(_ sender: UIButton) {
-        if let name = selectedArtist?.artistName,
-           let image = selectedArtist?.artworkUrl100,
-            let userID = Auth.auth().currentUser?.uid {
-            db.collection("profiles")
-                .addDocument(data:
-                    ["userID": userID,
-                     "followedArtists": name]) {
-                        (error) in
-                        if let e = error {
-                        print("There was an issue saving data to firestore, \(e)")
-                        } else {
-                        print("Successfully saved data")
-                        }
-            }
+        if let safeData = selectedArtist {
+            firebase.updateFollowedArtists(with: safeData)
+            
+            
+            
+//        if let name = selectedArtist?.artistName,
+//           let image = selectedArtist?.artworkUrl100,
+//            let userID = Auth.auth().currentUser?.uid {
+//            db.collection("profiles")
+//                .addDocument(data:
+//                    ["userID": userID,
+//                     "followedArtists": name]) {
+//                        (error) in
+//                        if let e = error {
+//                        print("There was an issue saving data to firestore, \(e)")
+//                        } else {
+//                        print("Successfully saved data")
+//                        }
+//            }
         }
     }
 
