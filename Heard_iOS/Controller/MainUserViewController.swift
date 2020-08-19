@@ -1,7 +1,5 @@
 
 import UIKit
-import FirebaseAuth
-import FirebaseFirestore
 
 class MainUserViewController : UIViewController {
     
@@ -11,8 +9,7 @@ class MainUserViewController : UIViewController {
     @IBOutlet weak var findArtistsButton: UIButton!
     @IBOutlet weak var myArtistsTV: UITableView!
     
-    let db = Firestore.firestore()
-    
+    let firebase = FirebaseRepository()
     var myArtists: [ArtistData] = []
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,12 +24,18 @@ class MainUserViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        myArtistsTV.register(UINib(nibName: "ArtistItemView", bundle: nil), forCellReuseIdentifier: "ArtistItemViewCell")
+      //  firebase.delegate = self
+        myArtistsTV.register(UINib(nibName: "ArtistItemView", bundle: nil), forCellReuseIdentifier: "ArtistItemViewCell")
+        loadMyFollowedArtists()
+    }
+    
+    func loadMyFollowedArtists() {
+        
     }
     
 }
 
-// MARK: - UITableViewDataSource
+//// MARK: - UITableViewDataSource
 //extension MainUserViewController : UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return myArtists.count
@@ -42,4 +45,16 @@ class MainUserViewController : UIViewController {
 //
 //    }
 //
+//}
+
+//// MARK: - FetchArtistDelegate
+//extension MainUserViewController : FetchArtistDelegate {
+//
+//    func myArtistsReceived(_ myArtists: [ArtistData]) {
+//        <#code#>
+//    }
+//
+//    func onError(_ error: Error) {
+//        <#code#>
+//    }
 //}

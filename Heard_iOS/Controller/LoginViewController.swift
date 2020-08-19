@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     @IBAction func signInPressed(_ sender: UIButton) {
         if let email = emailTextField.text,
             let password = passwordTextField.text {
-            firebase.verifyLogin(with: email, with: password)
+            firebase.verifyLogin(with: email, and: password)
         }
     }
     

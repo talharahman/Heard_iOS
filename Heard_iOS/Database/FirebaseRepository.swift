@@ -2,6 +2,8 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import RxFirebase
+import RxSwift
 
 class FirebaseRepository {
     
@@ -9,21 +11,39 @@ class FirebaseRepository {
     private let database = Firestore.firestore()
     private let profiles: CollectionReference
     private let artists: CollectionReference
+    var delegate: FetchArtistDelegate?
+    let disposeBag = DisposeBag()
     
     init() {
         profiles = database.collection(C.profiles)
         artists = database.collection(C.artists)
     }
 
-    func verifyLogin(with email: String, with password: String) {
-        auth.signIn(withEmail: email, password: password) {
-             authResult, error in
-             if let e = error { print(e.localizedDescription) }
-        }
+    func verifyLogin(with email: String, and password: String) {
+        auth.rx.signIn(withEmail: email, password: password)
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .subscribe(onNext: { authResult in
+                print("user signed in")
+            }, onError: { error in
+                print(error.localizedDescription)
+            }).disposed(by: disposeBag)
     }
     
-    
-    
+//    private var userDocRef: String {
+//        set {
+//            profiles.rx
+//                .addDocument(data: [C.userID : auth.currentUser?.uid])
+//                .subscribe(onNext: { ref in
+//                    self.userDocRef = ref.documentID
+//                }, onError: { error in
+//                    print("Error adding document: \(error)")
+//                }).disposed(by: disposeBag)
+//        }
+//        get {
+//            return self.userDocRef
+//        }
+//     }
+
     func updateFollowedArtists(with artist: ArtistData) {
         profiles.whereField(C.userID, isEqualTo: auth.currentUser!.uid)
             .getDocuments() { (querySnapshot, err) in
@@ -60,4 +80,26 @@ class FirebaseRepository {
                 }
         }
     }
+    
+    func fetchFollowedArtists() {
+        profiles.order(by: C.artistName)
+        .addSnapshotListener { (querySnapshot, error) in
+            if let e = error {
+                 print("There was an issue retrieving data from Firestore. \(e)")
+                self.delegate?.onError(e)
+            } else {
+//                if let snapshotDocuments = querySnapshot?.documents {
+//
+//                }
+            }
+        }
+    }
+}
+
+// MARK: - Fetch Artists Protocol
+protocol FetchArtistDelegate {
+    
+    func myArtistsReceived(_ myArtists: [ArtistData])
+    
+    func onError(_ error: Error)
 }

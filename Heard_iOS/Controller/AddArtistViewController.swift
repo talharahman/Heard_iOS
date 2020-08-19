@@ -1,7 +1,5 @@
 
 import UIKit
-import FirebaseAuth
-import FirebaseFirestore
 
 class AddArtistViewController : UIViewController {
     
@@ -14,7 +12,6 @@ class AddArtistViewController : UIViewController {
     var searchManager = ArtistSearchManager()
     var selectedArtist: ArtistData?
     let firebase = FirebaseRepository()
-//    let db = Firestore.firestore()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,26 +32,8 @@ class AddArtistViewController : UIViewController {
     @IBAction func addArtistPressed(_ sender: UIButton) {
         if let safeData = selectedArtist {
             firebase.updateFollowedArtists(with: safeData)
-            
-            
-            
-//        if let name = selectedArtist?.artistName,
-//           let image = selectedArtist?.artworkUrl100,
-//            let userID = Auth.auth().currentUser?.uid {
-//            db.collection("profiles")
-//                .addDocument(data:
-//                    ["userID": userID,
-//                     "followedArtists": name]) {
-//                        (error) in
-//                        if let e = error {
-//                        print("There was an issue saving data to firestore, \(e)")
-//                        } else {
-//                        print("Successfully saved data")
-//                        }
-//            }
         }
     }
-
 }
 
 // MARK: - UITextFieldDelegate

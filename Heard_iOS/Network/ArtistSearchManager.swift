@@ -1,4 +1,5 @@
 import Foundation
+import RxSwift
 
 protocol ArtistSearchDelegate {
     
@@ -10,8 +11,8 @@ protocol ArtistSearchDelegate {
 
 struct ArtistSearchManager {
     
-    let baseURL = "https://itunes.apple.com/search?"
-    
+    private let baseURL = "https://itunes.apple.com/search?"
+        
     var delegate: ArtistSearchDelegate?
     
     func fetchArtist(with input: String) {
@@ -29,18 +30,17 @@ struct ArtistSearchManager {
                     self.delegate?.onError(error!)
                     return
                 }
-                
+
                 if let safeData = data {
                     if let results = self.parseJSON(safeData) {
                         self.delegate?.onSuccess(self, results)
                     }
                 }
-                
             }
             task.resume()
         }
     }
-    
+
     func parseJSON(_ artistData: Data) -> ArtistData? {
         let decoder = JSONDecoder()
         do {
