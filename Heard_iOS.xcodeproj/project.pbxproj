@@ -11,6 +11,8 @@
 		9E5A9B6B24E9B5CF0011C3F5 /* ArtistItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E5A9B6924E9B5CF0011C3F5 /* ArtistItemView.xib */; };
 		9E5A9B6D24E9BDDF0011C3F5 /* FirebaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A9B6C24E9BDDF0011C3F5 /* FirebaseRepository.swift */; };
 		9E5A9B7324EB437E0011C3F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A9B7224EB437E0011C3F5 /* Constants.swift */; };
+		9E70AFA624F14E62009725D8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E70AFA524F14E62009725D8 /* WelcomeViewController.swift */; };
+		9E70AFA824F15CCD009725D8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E70AFA724F15CCD009725D8 /* SignUpViewController.swift */; };
 		9E98B36024E7895800CBDD5E /* MainUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E98B35F24E7895800CBDD5E /* MainUserViewController.swift */; };
 		9EA8914724E72010007F4F8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914624E72010007F4F8C /* AppDelegate.swift */; };
 		9EA8914924E72010007F4F8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA8914824E72010007F4F8C /* SceneDelegate.swift */; };
@@ -31,6 +33,8 @@
 		9E5A9B6924E9B5CF0011C3F5 /* ArtistItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistItemView.xib; sourceTree = "<group>"; };
 		9E5A9B6C24E9BDDF0011C3F5 /* FirebaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepository.swift; sourceTree = "<group>"; };
 		9E5A9B7224EB437E0011C3F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9E70AFA524F14E62009725D8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		9E70AFA724F15CCD009725D8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		9E98B35F24E7895800CBDD5E /* MainUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUserViewController.swift; sourceTree = "<group>"; };
 		9EA8914324E72010007F4F8C /* Heard_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heard_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA8914624E72010007F4F8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				9EA8914A24E72010007F4F8C /* LoginViewController.swift */,
 				9E98B35F24E7895800CBDD5E /* MainUserViewController.swift */,
 				9EFFF1A424E852BE00ABB530 /* AddArtistViewController.swift */,
+				9E70AFA524F14E62009725D8 /* WelcomeViewController.swift */,
+				9E70AFA724F15CCD009725D8 /* SignUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -277,9 +283,11 @@
 			files = (
 				9E5A9B6A24E9B5CF0011C3F5 /* ArtistItemView.swift in Sources */,
 				9E5A9B7324EB437E0011C3F5 /* Constants.swift in Sources */,
+				9E70AFA624F14E62009725D8 /* WelcomeViewController.swift in Sources */,
 				9EFFF1A724E86E4A00ABB530 /* ArtistSearchManager.swift in Sources */,
 				9EA8914B24E72010007F4F8C /* LoginViewController.swift in Sources */,
 				9EFFF1AC24E86F4000ABB530 /* ArtistModel.swift in Sources */,
+				9E70AFA824F15CCD009725D8 /* SignUpViewController.swift in Sources */,
 				9EA8914724E72010007F4F8C /* AppDelegate.swift in Sources */,
 				9E5A9B6D24E9BDDF0011C3F5 /* FirebaseRepository.swift in Sources */,
 				9EFFF1A524E852BE00ABB530 /* AddArtistViewController.swift in Sources */,

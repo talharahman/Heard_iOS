@@ -18,10 +18,32 @@ class FirebaseRepository {
         profiles = database.collection(C.profiles)
         artists = database.collection(C.artists)
     }
+    
+    func createUser(with email: String, password: String, and username: String) {
+        auth.rx
+            .createUser(withEmail: email, password: password)
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .subscribe(onNext: { authResult in
+                self.createUserDoc(username, email)
+            }, onError: { error in
+                print(error.localizedDescription)
+            }).disposed(by: disposeBag)
+    }
+    
+    func createUserDoc(_ username: String, _ email: String) {
+        profiles
+            .document(email)
+            .rx
+            .setData([C.userName : username])
+            .subscribe(onError: { error in
+                print("Error setting data: \(error)")
+            }).disposed(by: disposeBag)
+    }
 
     func verifyLogin(with email: String, and password: String) {
-        auth.rx.signIn(withEmail: email, password: password)
-            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+        auth.rx
+            .signIn(withEmail: email, password: password)
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .subscribe(onNext: { authResult in
                 print("user signed in")
             }, onError: { error in
@@ -45,40 +67,40 @@ class FirebaseRepository {
 //     }
 
     func updateFollowedArtists(with artist: ArtistData) {
-        profiles.whereField(C.userID, isEqualTo: auth.currentUser!.uid)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    let docID = querySnapshot!.documents[0].documentID
-                    self.profiles.document(docID).updateData([
-                        C.followedArtists: FieldValue.arrayUnion([artist.artistName])
-                    ])
-                }
-        }
-        
-        
-        artists.whereField(C.artistName, isEqualTo: artist.artistName)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                }
-                
-                if querySnapshot != nil {
-                    if !querySnapshot!.documents.isEmpty {
-                    let docID = querySnapshot!.documents[0].documentID
-                    self.artists.document(docID).updateData([
-                        C.artistFollowers : FieldValue.arrayUnion([self.auth.currentUser!.uid])
-                    ])
-                } else {
-                    self.artists.addDocument(data:
-                        [C.artistName : artist.artistName,
-                        C.artistImage : artist.artworkUrl100,
-                        C.artistFollowers : FieldValue.arrayUnion([self.auth.currentUser!.uid])
-                        ])
-                    }
-                }
-        }
+//        profiles.whereField(C.userID, isEqualTo: auth.currentUser!.uid)
+//            .getDocuments() { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                } else {
+//                    let docID = querySnapshot!.documents[0].documentID
+//                    self.profiles.document(docID).updateData([
+//                        C.followedArtists: FieldValue.arrayUnion([artist.artistName])
+//                    ])
+//                }
+//        }
+//
+//
+//        artists.whereField(C.artistName, isEqualTo: artist.artistName)
+//            .getDocuments() { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                }
+//
+//                if querySnapshot != nil {
+//                    if !querySnapshot!.documents.isEmpty {
+//                    let docID = querySnapshot!.documents[0].documentID
+//                    self.artists.document(docID).updateData([
+//                        C.artistFollowers : FieldValue.arrayUnion([self.auth.currentUser!.uid])
+//                    ])
+//                } else {
+//                    self.artists.addDocument(data:
+//                        [C.artistName : artist.artistName,
+//                        C.artistImage : artist.artworkUrl100,
+//                        C.artistFollowers : FieldValue.arrayUnion([self.auth.currentUser!.uid])
+//                        ])
+//                    }
+//                }
+//        }
     }
     
     func fetchFollowedArtists() {

@@ -5,10 +5,10 @@ struct C {
     
     static let profiles = "profiles"
     static let artists = "artists"
-    static let userID = "userID"
-    static let followedArtists = "followedArtists"
-    static let artistImage = "artistImage"
-    static let artistName = "artistName"
-    static let artistFollowers = "artistFollowers"
+    static let userName = "user_name"
+    static let followedArtists = "followed_artists"
+    static let artistImage = "artist_image"
+    static let artistName = "artist_name"
+    static let artistFollowers = "artist_followers"
 
 }

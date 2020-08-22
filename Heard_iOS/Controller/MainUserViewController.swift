@@ -12,15 +12,6 @@ class MainUserViewController : UIViewController {
     let firebase = FirebaseRepository()
     var myArtists: [ArtistData] = []
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        searchNearbyButton.layer.cornerRadius =
-            searchNearbyButton.frame.size.height / 5
-        
-        findArtistsButton.layer.cornerRadius =
-        findArtistsButton.frame.size.height / 5
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
