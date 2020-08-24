@@ -11,8 +11,10 @@ class FirebaseRepository {
     private let database = Firestore.firestore()
     private let profiles: CollectionReference
     private let artists: CollectionReference
-    var delegate: FetchArtistDelegate?
+    var fetchUser: FetchUserDelegate?
+    var fetchArtists: FetchArtistDelegate?
     let disposeBag = DisposeBag()
+    var currentUser: UserData?
     
     init() {
         profiles = database.collection(C.profiles)
@@ -35,7 +37,9 @@ class FirebaseRepository {
             .document(email)
             .rx
             .setData([C.userName : username])
-            .subscribe(onError: { error in
+            .subscribe(onNext: {
+                self.initUserData()
+            }, onError: { error in
                 print("Error setting data: \(error)")
             }).disposed(by: disposeBag)
     }
@@ -45,62 +49,56 @@ class FirebaseRepository {
             .signIn(withEmail: email, password: password)
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .subscribe(onNext: { authResult in
-                print("user signed in")
+                self.initUserData()
             }, onError: { error in
                 print(error.localizedDescription)
             }).disposed(by: disposeBag)
     }
     
-//    private var userDocRef: String {
-//        set {
-//            profiles.rx
-//                .addDocument(data: [C.userID : auth.currentUser?.uid])
-//                .subscribe(onNext: { ref in
-//                    self.userDocRef = ref.documentID
-//                }, onError: { error in
-//                    print("Error adding document: \(error)")
-//                }).disposed(by: disposeBag)
-//        }
-//        get {
-//            return self.userDocRef
-//        }
-//     }
-
+    func initUserData() {
+        profiles
+            .document((auth.currentUser?.email)!)
+            .rx
+            .getDocument()
+            .compactMap({$0.data()})
+            .map({UserData(values: $0)})
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { userData in
+                self.currentUser = userData
+                self.fetchUser?.onUserReceived(userData)
+            }, onError: { error in
+                self.fetchUser?.onError(error)
+                print(error.localizedDescription)
+            }).disposed(by: disposeBag)
+    }
+        
+    
     func updateFollowedArtists(with artist: ArtistData) {
-//        profiles.whereField(C.userID, isEqualTo: auth.currentUser!.uid)
-//            .getDocuments() { (querySnapshot, err) in
-//                if let err = err {
-//                    print("Error getting documents: \(err)")
-//                } else {
-//                    let docID = querySnapshot!.documents[0].documentID
-//                    self.profiles.document(docID).updateData([
-//                        C.followedArtists: FieldValue.arrayUnion([artist.artistName])
-//                    ])
-//                }
-//        }
-//
-//
-//        artists.whereField(C.artistName, isEqualTo: artist.artistName)
-//            .getDocuments() { (querySnapshot, err) in
-//                if let err = err {
-//                    print("Error getting documents: \(err)")
-//                }
-//
-//                if querySnapshot != nil {
-//                    if !querySnapshot!.documents.isEmpty {
-//                    let docID = querySnapshot!.documents[0].documentID
-//                    self.artists.document(docID).updateData([
-//                        C.artistFollowers : FieldValue.arrayUnion([self.auth.currentUser!.uid])
-//                    ])
-//                } else {
-//                    self.artists.addDocument(data:
-//                        [C.artistName : artist.artistName,
-//                        C.artistImage : artist.artworkUrl100,
-//                        C.artistFollowers : FieldValue.arrayUnion([self.auth.currentUser!.uid])
-//                        ])
-//                    }
-//                }
-//        }
+        profiles
+            .document((auth.currentUser?.email)!)
+            .rx
+            .setData([C.followedArtists : FieldValue.arrayUnion([artist.artistName])
+            ], merge: true)
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .subscribe(onNext: { _ in
+                print("successfully add artist to follow")
+            }, onError: { error in
+                print(error.localizedDescription)
+            }).disposed(by: disposeBag)
+
+        artists
+            .document(artist.artistName)
+            .rx
+            .setData([C.artistName : artist.artistName,
+                      C.artistFollowers : FieldValue.arrayUnion([auth.currentUser?.email])
+                      ], merge: true)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: {
+                print("successfully add follower for artist")
+            }, onError: { error in
+                print(error.localizedDescription)
+            }).disposed(by: disposeBag)
+
     }
     
     func fetchFollowedArtists() {
@@ -108,7 +106,7 @@ class FirebaseRepository {
         .addSnapshotListener { (querySnapshot, error) in
             if let e = error {
                  print("There was an issue retrieving data from Firestore. \(e)")
-                self.delegate?.onError(e)
+                self.fetchArtists?.onError(e)
             } else {
 //                if let snapshotDocuments = querySnapshot?.documents {
 //
@@ -117,6 +115,15 @@ class FirebaseRepository {
         }
     }
 }
+
+// MARK: - Fetch User Protocol
+protocol FetchUserDelegate {
+    
+    func onUserReceived(_ userData: UserData)
+    
+    func onError(_ error: Error)
+}
+
 
 // MARK: - Fetch Artists Protocol
 protocol FetchArtistDelegate {

@@ -2,20 +2,17 @@
 import UIKit
 
 class MainUserViewController : UIViewController {
-    
+
     @IBOutlet weak var helloUserLabel: UILabel!
     @IBOutlet weak var favoriteArtistsTable: UITableView!
-    @IBOutlet weak var searchNearbyButton: UIButton!
-    @IBOutlet weak var findArtistsButton: UIButton!
     @IBOutlet weak var myArtistsTV: UITableView!
     
     let firebase = FirebaseRepository()
     var myArtists: [ArtistData] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  firebase.delegate = self
+        firebase.fetchUser = self
         myArtistsTV.register(UINib(nibName: "ArtistItemView", bundle: nil), forCellReuseIdentifier: "ArtistItemViewCell")
         loadMyFollowedArtists()
     }
@@ -25,6 +22,19 @@ class MainUserViewController : UIViewController {
     }
     
 }
+
+// MARK: - Fetch User Delegate
+extension MainUserViewController : FetchUserDelegate {
+    func onUserReceived(_ userData: UserData) {
+        helloUserLabel.text = "Hello \(userData.user_name!)"
+    }
+    
+    func onError(_ error: Error) {
+        print(error.localizedDescription)
+    }
+}
+
+
 
 //// MARK: - UITableViewDataSource
 //extension MainUserViewController : UITableViewDataSource {

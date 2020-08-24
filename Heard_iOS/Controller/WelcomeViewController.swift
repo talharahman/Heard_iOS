@@ -1,6 +1,5 @@
 
 import UIKit
-import Lottie
 
 class WelcomeViewController : UIViewController {
     
