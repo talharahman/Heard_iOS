@@ -7,10 +7,10 @@ import RxSwift
 
 class FirebaseRepository {
     
-    private let auth = Auth.auth()
-    private let database = Firestore.firestore()
-    private let profiles: CollectionReference
-    private let artists: CollectionReference
+    let auth = Auth.auth()
+    let database = Firestore.firestore()
+    let profiles: CollectionReference
+    let artists: CollectionReference
     var fetchUser: FetchUserDelegate?
     var fetchArtists: FetchArtistDelegate?
     let disposeBag = DisposeBag()
@@ -67,7 +67,6 @@ class FirebaseRepository {
                 self.currentUser = userData
                 self.fetchUser?.onUserReceived(userData)
             }, onError: { error in
-                self.fetchUser?.onError(error)
                 print(error.localizedDescription)
             }).disposed(by: disposeBag)
     }
@@ -90,7 +89,8 @@ class FirebaseRepository {
             .document(artist.artistName)
             .rx
             .setData([C.artistName : artist.artistName,
-                      C.artistFollowers : FieldValue.arrayUnion([auth.currentUser?.email])
+                      C.artistImage : artist.artworkUrl100,
+                      C.artistFollowers : FieldValue.arrayUnion([auth.currentUser?.email as Any])
                       ], merge: true)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: {
@@ -102,33 +102,41 @@ class FirebaseRepository {
     }
     
     func fetchFollowedArtists() {
-        profiles.order(by: C.artistName)
-        .addSnapshotListener { (querySnapshot, error) in
-            if let e = error {
-                 print("There was an issue retrieving data from Firestore. \(e)")
-                self.fetchArtists?.onError(e)
-            } else {
-//                if let snapshotDocuments = querySnapshot?.documents {
-//
-//                }
-            }
+        var artistList: [ArtistData] = []
+  
+        artists
+            .whereField(C.artistFollowers, arrayContains: auth.currentUser?.email! as Any)
+            .rx
+            .getDocuments()
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { snapshot in
+                snapshot.documents.forEach { doc in
+                    let data = doc.data()
+                    if let name = data[C.artistName] as? String,
+                        let image = data[C.artistImage] as? String {
+                        let newArtist = ArtistData(name, image)
+                        artistList.append(newArtist)
+                        
+                        DispatchQueue.main.async {
+                            self.fetchArtists?.myArtistsReceived(artistList)
+                        }
+                    }
+                }
+            }, onError: { error in
+                print(error.localizedDescription)
+            }).disposed(by: disposeBag)
+        
         }
     }
-}
 
 // MARK: - Fetch User Protocol
 protocol FetchUserDelegate {
-    
     func onUserReceived(_ userData: UserData)
-    
-    func onError(_ error: Error)
 }
 
 
 // MARK: - Fetch Artists Protocol
-protocol FetchArtistDelegate {
-    
+protocol FetchArtistDelegate {    
     func myArtistsReceived(_ myArtists: [ArtistData])
-    
-    func onError(_ error: Error)
 }

@@ -3,6 +3,7 @@ import Foundation
 
 struct C {
     
+    static let myArtists = "ArtistItemViewCell"
     static let profiles = "profiles"
     static let artists = "artists"
     static let userName = "user_name"
