@@ -103,7 +103,6 @@ class FirebaseRepository {
     
     func fetchFollowedArtists() {
         var artistList: [ArtistData] = []
-  
         artists
             .whereField(C.artistFollowers, arrayContains: auth.currentUser?.email! as Any)
             .rx
@@ -117,7 +116,7 @@ class FirebaseRepository {
                         let image = data[C.artistImage] as? String {
                         let newArtist = ArtistData(name, image)
                         artistList.append(newArtist)
-                        
+
                         DispatchQueue.main.async {
                             self.fetchArtists?.myArtistsReceived(artistList)
                         }
