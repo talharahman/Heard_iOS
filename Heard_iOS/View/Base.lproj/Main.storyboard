@@ -238,7 +238,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JXd-rw-epb" userLabel="StackViewTop">
-                                <rect key="frame" x="111.5" y="47.5" width="191" height="76.5"/>
+                                <rect key="frame" x="111.5" y="8" width="191" height="76.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebj-3E-LG8">
                                         <rect key="frame" x="0.0" y="0.0" width="191" height="48"/>
@@ -255,10 +255,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wmQ-b2-oDQ" userLabel="StackViewBottom">
-                                <rect key="frame" x="107" y="611" width="200" height="182"/>
+                                <rect key="frame" x="146.5" y="571.5" width="121" height="182"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7UX-Gw-hus">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="83"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="83"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="SEARCH NEARBY">
@@ -271,8 +271,8 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNz-Da-99r">
-                                        <rect key="frame" x="0.0" y="99" width="200" height="83"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="99" width="121" height="83"/>
+                                        <color key="backgroundColor" name="ColorAccent"/>
                                         <state key="normal" title="FIND ARTISTS">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -288,7 +288,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vMg-ak-RTl">
-                                <rect key="frame" x="8" y="140" width="398" height="455"/>
+                                <rect key="frame" x="8" y="100.5" width="398" height="455"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="455" id="N82-hn-NtH"/>
@@ -297,13 +297,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zf9-Sv-M5L" firstAttribute="bottom" secondItem="wmQ-b2-oDQ" secondAttribute="bottom" constant="15" id="2R0-OE-4CC"/>
-                            <constraint firstItem="wmQ-b2-oDQ" firstAttribute="centerX" secondItem="6yC-X8-HSo" secondAttribute="centerX" id="3uU-uk-o3r"/>
+                            <constraint firstItem="wmQ-b2-oDQ" firstAttribute="centerX" secondItem="6yC-X8-HSo" secondAttribute="centerX" id="F7g-Tj-mnB"/>
                             <constraint firstItem="wmQ-b2-oDQ" firstAttribute="top" secondItem="vMg-ak-RTl" secondAttribute="bottom" constant="16" id="JvH-UR-HxL"/>
-                            <constraint firstItem="JXd-rw-epb" firstAttribute="centerX" secondItem="6yC-X8-HSo" secondAttribute="centerX" id="Tao-et-Mf6"/>
                             <constraint firstItem="zf9-Sv-M5L" firstAttribute="trailing" secondItem="vMg-ak-RTl" secondAttribute="trailing" constant="8" id="WUY-If-QMO"/>
+                            <constraint firstItem="JXd-rw-epb" firstAttribute="top" secondItem="zf9-Sv-M5L" secondAttribute="top" constant="8" id="WVi-BL-wyO"/>
+                            <constraint firstItem="JXd-rw-epb" firstAttribute="centerX" secondItem="6yC-X8-HSo" secondAttribute="centerX" id="azv-06-KRK"/>
                             <constraint firstItem="vMg-ak-RTl" firstAttribute="leading" secondItem="zf9-Sv-M5L" secondAttribute="leading" constant="8" id="hLa-Lw-glb"/>
-                            <constraint firstItem="vMg-ak-RTl" firstAttribute="top" secondItem="JXd-rw-epb" secondAttribute="bottom" constant="16" id="zyG-SR-c5r"/>
+                            <constraint firstItem="vMg-ak-RTl" firstAttribute="top" secondItem="JXd-rw-epb" secondAttribute="bottom" constant="16" id="qQo-vA-a8s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zf9-Sv-M5L"/>
                     </view>
@@ -409,7 +409,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PO9-q0-Jmf"/>
+        <segue reference="TlM-zR-iTn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
